@@ -8,7 +8,7 @@ dataSources:
     name: cREAL
     network: celo
     source:
-      address: "0x434563B0604BE100F04B7Ae485BcafE3c9D8850E"
+      address: "0xe8537a3d056da446677b9e9d6c5db704eaab4787"
       abi: cREAL
       startBlock: 22856317
     mapping:
