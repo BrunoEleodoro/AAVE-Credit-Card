@@ -79,7 +79,7 @@ async function main() {
             console.error(error);
         }
 
-        await sleep(10000);
+        await sleep(60000);
     }
 }
 
