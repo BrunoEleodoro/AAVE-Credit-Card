@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  nodeapp:
+    image: my-nodejs-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"  # Map port 3000 of the container to port 3000 on the host
+    environment:
+      - ARB_PROVIDER_URL=${ARB_PROVIDER_URL}
+      - CELO_PROVIDER_URL=${CELO_PROVIDER_URL}
+      - ARB_PRIVATE_KEY=${ARB_PRIVATE_KEY}
+      - AAVE_CREDIT_CARD_ADDRESS=${AAVE_CREDIT_CARD_ADDRESS}
+      - GRAPH_QL_URL=${GRAPH_QL_URL}
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
