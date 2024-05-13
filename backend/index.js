@@ -21,6 +21,21 @@ const query = `query MyQuery {
       value
     }
   }`
+const AAVECreditCardABI = [
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "borrow",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+]
 
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -40,6 +55,7 @@ function setupProvider(url) {
 async function main() {
     const arbProvider = setupProvider(process.env.ARB_PROVIDER_URL);
     const arbWallet = new ethers.Wallet(process.env.ARB_PRIVATE_KEY, arbProvider);
+    const AAVECreditCardContract = new ethers.Contract(process.env.AAVE_CREDIT_CARD_ADDRESS, AAVECreditCardABI, arbWallet);
 
     // Create a contract instance
     let response = undefined;
