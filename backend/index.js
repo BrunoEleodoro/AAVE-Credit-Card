@@ -75,16 +75,16 @@ async function main() {
                     const amount = BigNumber(transfer.value);
 
                     // Calculate the dollar equivalent on Arbitrum
-                    const dollarsOnArb = amount.dividedBy(10 ** 18).dividedBy(5).multipliedBy(10 ** 6);
+                    const dollarsOnArb = amount.dividedBy(10 ** 18).multipliedBy(5).multipliedBy(10 ** 6);
                     const finalAmount = dollarsOnArb.integerValue(BigNumber.ROUND_FLOOR);
                     console.log('Dollars on arb:', finalAmount.toString());
                     console.log(arbWallet.address)
 
                     try {
-                        const res = await AAVECreditCardContract.borrow(finalAmount.toString(), { gasLimit: 1000000 });
+                        const resBorrow = await AAVECreditCardContract.borrow(finalAmount.toString(), { gasLimit: 1000000 });
                         response = res.data.data.transfers;
                         console.log('BORROW!!')
-                        console.log(res);
+                        console.log(resBorrow);
                     } catch (err) {
                         console.error('Error executing borrow:', err);
                     }
