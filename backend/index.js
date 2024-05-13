@@ -68,7 +68,7 @@ async function main() {
             if (response === undefined) {
                 response = res.data.data.transfers;
             } else {
-                if (response.length !== res.data.data.transfers.length) {
+                if (response && response[0].id !== res.data.data.transfers[0].id) {
                     console.log(res.data.data.transfers);
                     console.log('New transfer found!');
                     const transfer = res.data.data.transfers[0];
