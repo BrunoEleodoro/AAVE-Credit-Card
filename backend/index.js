@@ -1,5 +1,6 @@
 const axios = require('axios');
 const dotenv = require('dotenv');
+const BigNumber = require('bignumber.js');
 const ethers = require('ethers');
 
 dotenv.config();
