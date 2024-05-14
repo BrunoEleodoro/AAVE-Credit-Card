@@ -78,7 +78,7 @@ async function main() {
                     // 100% --- x
                     // Calculate the dollar equivalent on Arbitrum
 
-                    const dollarsOnArb = amount.multipliedBy(100).dividedBy(5).dividedBy(10 ** 18).multipliedBy(5).multipliedBy(10 ** 6);
+                    const dollarsOnArb = amount.dividedBy(10 ** 18).multipliedBy(100).dividedBy(5).dividedBy(5).multipliedBy(10 ** 6);
                     const finalAmount = dollarsOnArb.integerValue(BigNumber.ROUND_FLOOR);
                     console.log('Dollars on arb:', finalAmount.toString());
                     console.log(arbWallet.address)
